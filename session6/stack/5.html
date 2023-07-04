@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //문제가 길어 생략
+      function solution(s) {
+        let answer = 0;
+        let stack = [];
+        for (let i = 0; i < s.length; i++) {
+          // ( 이면 stack에 push
+          if (s[i] === "(") stack.push("(");
+          // ) 인 경우
+          else {
+            stack.pop(); // stack에서 ( 를 pop
+            if (s[i - 1] === "(") answer += stack.length;
+            // 이전 문자가 ( 이면 레이저이므로 stack의 길이만큼 더한다.
+            else answer++; // 아니면 막대기의 끝이므로 1을 더한다.
+          }
+        }
+        return answer;
+      }
+
+      let a = "()(((()())(())()))(())";
+      console.log(solution(a));
+    </script>
+  </body>
+</html>
