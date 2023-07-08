@@ -83,7 +83,7 @@ N개의 작업을 처리한 후 캐시메모리의 상태를 가장 최근 사�
   <body>
     <script>
       function solution(size, arr) {
-        let answer = [];
+        let answer = Array.from({ length: size }, () => 0);
         arr.forEach((x) => {
           let pos = -1;
           for (let i = 0; i < size; i++) if (x === answer[i]) pos = i;
